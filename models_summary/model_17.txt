@@ -1,0 +1,981 @@
+Model: "sam_model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 224, 224, 3  0           []                               
+                                )]                                                                
+                                                                                                  
+ convnext_small_prestem_normali  (None, 224, 224, 3)  0          ['input_2[0][0]']                
+ zation (Normalization)                                                                           
+                                                                                                  
+ convnext_small_stem (Sequentia  (None, 56, 56, 96)  4896        ['convnext_small_prestem_normaliz
+ l)                                                              ation[0][0]']                    
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 96)  4800        ['convnext_small_stem[0][0]']    
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 96)  192         ['convnext_small_stage_0_block_0_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 384)  37248      ['convnext_small_stage_0_block_0_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 384)  0          ['convnext_small_stage_0_block_0_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 96)  36960       ['convnext_small_stage_0_block_0_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 96)  96          ['convnext_small_stage_0_block_0_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_0  (None, 56, 56, 96)  0           ['convnext_small_stage_0_block_0_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_36 (TFOpL  (None, 56, 56, 96)  0           ['convnext_small_stem[0][0]',    
+ ambda)                                                           'convnext_small_stage_0_block_0_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 96)  4800        ['tf.__operators__.add_36[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 96)  192         ['convnext_small_stage_0_block_1_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 384)  37248      ['convnext_small_stage_0_block_1_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 384)  0          ['convnext_small_stage_0_block_1_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 96)  36960       ['convnext_small_stage_0_block_1_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 96)  96          ['convnext_small_stage_0_block_1_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_1  (None, 56, 56, 96)  0           ['convnext_small_stage_0_block_1_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_37 (TFOpL  (None, 56, 56, 96)  0           ['tf.__operators__.add_36[0][0]',
+ ambda)                                                           'convnext_small_stage_0_block_1_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 96)  4800        ['tf.__operators__.add_37[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 96)  192         ['convnext_small_stage_0_block_2_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 384)  37248      ['convnext_small_stage_0_block_2_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 384)  0          ['convnext_small_stage_0_block_2_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 96)  36960       ['convnext_small_stage_0_block_2_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 96)  96          ['convnext_small_stage_0_block_2_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_0_block_2  (None, 56, 56, 96)  0           ['convnext_small_stage_0_block_2_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_38 (TFOpL  (None, 56, 56, 96)  0           ['tf.__operators__.add_37[0][0]',
+ ambda)                                                           'convnext_small_stage_0_block_2_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_downsampling_bl  (None, 28, 28, 192)  74112      ['tf.__operators__.add_38[0][0]']
+ ock_0 (Sequential)                                                                               
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 192)  9600       ['convnext_small_downsampling_blo
+ _depthwise_conv (Conv2D)                                        ck_0[0][0]']                     
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 192)  384        ['convnext_small_stage_1_block_0_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 768)  148224     ['convnext_small_stage_1_block_0_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 768)  0          ['convnext_small_stage_1_block_0_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 192)  147648     ['convnext_small_stage_1_block_0_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 192)  192        ['convnext_small_stage_1_block_0_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_0  (None, 28, 28, 192)  0          ['convnext_small_stage_1_block_0_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_39 (TFOpL  (None, 28, 28, 192)  0          ['convnext_small_downsampling_blo
+ ambda)                                                          ck_0[0][0]',                     
+                                                                  'convnext_small_stage_1_block_0_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 192)  9600       ['tf.__operators__.add_39[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 192)  384        ['convnext_small_stage_1_block_1_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 768)  148224     ['convnext_small_stage_1_block_1_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 768)  0          ['convnext_small_stage_1_block_1_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 192)  147648     ['convnext_small_stage_1_block_1_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 192)  192        ['convnext_small_stage_1_block_1_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_1  (None, 28, 28, 192)  0          ['convnext_small_stage_1_block_1_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_40 (TFOpL  (None, 28, 28, 192)  0          ['tf.__operators__.add_39[0][0]',
+ ambda)                                                           'convnext_small_stage_1_block_1_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 192)  9600       ['tf.__operators__.add_40[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 192)  384        ['convnext_small_stage_1_block_2_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 768)  148224     ['convnext_small_stage_1_block_2_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 768)  0          ['convnext_small_stage_1_block_2_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 192)  147648     ['convnext_small_stage_1_block_2_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 192)  192        ['convnext_small_stage_1_block_2_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_1_block_2  (None, 28, 28, 192)  0          ['convnext_small_stage_1_block_2_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_41 (TFOpL  (None, 28, 28, 192)  0          ['tf.__operators__.add_40[0][0]',
+ ambda)                                                           'convnext_small_stage_1_block_2_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_downsampling_bl  (None, 14, 14, 384)  295680     ['tf.__operators__.add_41[0][0]']
+ ock_1 (Sequential)                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 384)  19200      ['convnext_small_downsampling_blo
+ _depthwise_conv (Conv2D)                                        ck_1[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_0_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_0_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_0_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_0_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_0_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_0  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_0_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_42 (TFOpL  (None, 14, 14, 384)  0          ['convnext_small_downsampling_blo
+ ambda)                                                          ck_1[0][0]',                     
+                                                                  'convnext_small_stage_2_block_0_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_42[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_1_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_1_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_1_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_1_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_1_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_1_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_43 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_42[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_1_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_43[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_2_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_2_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_2_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_2_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_2_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_2_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_44 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_43[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_2_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 384)  19200      ['tf.__operators__.add_44[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_3_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_3_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_3_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_3_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_3_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_3  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_3_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_45 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_44[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_3_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 384)  19200      ['tf.__operators__.add_45[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_4_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_4_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_4_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_4_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_4_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_4  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_4_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_46 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_45[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_4_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 384)  19200      ['tf.__operators__.add_46[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_5_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_5_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_5_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_5_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_5_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_5  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_5_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_47 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_46[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_5_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 384)  19200      ['tf.__operators__.add_47[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_6_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_6_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_6_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_6_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_6_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_6  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_6_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_48 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_47[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_6_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 384)  19200      ['tf.__operators__.add_48[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_7_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_7_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_7_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_7_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_7_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_7  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_7_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_49 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_48[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_7_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 384)  19200      ['tf.__operators__.add_49[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_8_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_8_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_8_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_8_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_8_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_8  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_8_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_50 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_49[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_8_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 384)  19200      ['tf.__operators__.add_50[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_9_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_9_
+ _pointwise_conv_1 (Dense)      )                                layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_9_
+ _gelu (Activation)             )                                pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_9_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_9_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_2_block_9  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_9_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_51 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_50[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_9_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_51[0][0]']
+ 0_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_10
+ 0_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_10
+ 0_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_10
+ 0_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_10
+ 0_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_10
+ 0_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_10
+ 0_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_52 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_51[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_10
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_52[0][0]']
+ 1_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_11
+ 1_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_11
+ 1_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_11
+ 1_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_11
+ 1_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_11
+ 1_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_11
+ 1_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_53 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_52[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_11
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_53[0][0]']
+ 2_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_12
+ 2_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_12
+ 2_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_12
+ 2_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_12
+ 2_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_12
+ 2_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_12
+ 2_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_54 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_53[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_12
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_54[0][0]']
+ 3_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_13
+ 3_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_13
+ 3_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_13
+ 3_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_13
+ 3_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_13
+ 3_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_13
+ 3_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_55 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_54[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_13
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_55[0][0]']
+ 4_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_14
+ 4_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_14
+ 4_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_14
+ 4_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_14
+ 4_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_14
+ 4_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_14
+ 4_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_56 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_55[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_14
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_56[0][0]']
+ 5_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_15
+ 5_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_15
+ 5_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_15
+ 5_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_15
+ 5_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_15
+ 5_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_15
+ 5_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_57 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_56[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_15
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_57[0][0]']
+ 6_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_16
+ 6_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_16
+ 6_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_16
+ 6_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_16
+ 6_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_16
+ 6_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_16
+ 6_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_58 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_57[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_16
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_58[0][0]']
+ 7_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_17
+ 7_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_17
+ 7_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_17
+ 7_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_17
+ 7_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_17
+ 7_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_17
+ 7_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_59 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_58[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_17
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_59[0][0]']
+ 8_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_18
+ 8_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_18
+ 8_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_18
+ 8_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_18
+ 8_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_18
+ 8_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_18
+ 8_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_60 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_59[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_18
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  19200      ['tf.__operators__.add_60[0][0]']
+ 9_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_19
+ 9_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_19
+ 9_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_19
+ 9_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_19
+ 9_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_19
+ 9_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_1  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_19
+ 9_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_61 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_60[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_19
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_61[0][0]']
+ 0_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_20
+ 0_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_20
+ 0_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_20
+ 0_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_20
+ 0_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_20
+ 0_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_20
+ 0_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_62 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_61[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_20
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_62[0][0]']
+ 1_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_21
+ 1_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_21
+ 1_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_21
+ 1_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_21
+ 1_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_21
+ 1_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_21
+ 1_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_63 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_62[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_21
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_63[0][0]']
+ 2_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_22
+ 2_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_22
+ 2_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_22
+ 2_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_22
+ 2_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_22
+ 2_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_22
+ 2_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_64 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_63[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_22
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_64[0][0]']
+ 3_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_23
+ 3_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_23
+ 3_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_23
+ 3_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_23
+ 3_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_23
+ 3_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_23
+ 3_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_65 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_64[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_23
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_65[0][0]']
+ 4_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_24
+ 4_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_24
+ 4_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_24
+ 4_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_24
+ 4_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_24
+ 4_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_24
+ 4_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_66 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_65[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_24
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_66[0][0]']
+ 5_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_25
+ 5_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_25
+ 5_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_25
+ 5_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_25
+ 5_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_25
+ 5_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_25
+ 5_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_67 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_66[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_25
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  19200      ['tf.__operators__.add_67[0][0]']
+ 6_depthwise_conv (Conv2D)                                                                        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  768        ['convnext_small_stage_2_block_26
+ 6_layernorm (LayerNormalizatio                                  _depthwise_conv[0][0]']          
+ n)                                                                                               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  591360     ['convnext_small_stage_2_block_26
+ 6_pointwise_conv_1 (Dense)     )                                _layernorm[0][0]']               
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 1536  0          ['convnext_small_stage_2_block_26
+ 6_gelu (Activation)            )                                _pointwise_conv_1[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  590208     ['convnext_small_stage_2_block_26
+ 6_pointwise_conv_2 (Dense)                                      _gelu[0][0]']                    
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  384        ['convnext_small_stage_2_block_26
+ 6_layer_scale (LayerScale)                                      _pointwise_conv_2[0][0]']        
+                                                                                                  
+ convnext_small_stage_2_block_2  (None, 14, 14, 384)  0          ['convnext_small_stage_2_block_26
+ 6_identity (Activation)                                         _layer_scale[0][0]']             
+                                                                                                  
+ tf.__operators__.add_68 (TFOpL  (None, 14, 14, 384)  0          ['tf.__operators__.add_67[0][0]',
+ ambda)                                                           'convnext_small_stage_2_block_26
+                                                                 _identity[0][0]']                
+                                                                                                  
+ convnext_small_downsampling_bl  (None, 7, 7, 768)   1181184     ['tf.__operators__.add_68[0][0]']
+ ock_2 (Sequential)                                                                               
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 768)   38400       ['convnext_small_downsampling_blo
+ _depthwise_conv (Conv2D)                                        ck_2[0][0]']                     
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 768)   1536        ['convnext_small_stage_3_block_0_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 3072)  2362368     ['convnext_small_stage_3_block_0_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 3072)  0           ['convnext_small_stage_3_block_0_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 768)   2360064     ['convnext_small_stage_3_block_0_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 768)   768         ['convnext_small_stage_3_block_0_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_0  (None, 7, 7, 768)   0           ['convnext_small_stage_3_block_0_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_69 (TFOpL  (None, 7, 7, 768)   0           ['convnext_small_downsampling_blo
+ ambda)                                                          ck_2[0][0]',                     
+                                                                  'convnext_small_stage_3_block_0_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 768)   38400       ['tf.__operators__.add_69[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 768)   1536        ['convnext_small_stage_3_block_1_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 3072)  2362368     ['convnext_small_stage_3_block_1_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 3072)  0           ['convnext_small_stage_3_block_1_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 768)   2360064     ['convnext_small_stage_3_block_1_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 768)   768         ['convnext_small_stage_3_block_1_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_1  (None, 7, 7, 768)   0           ['convnext_small_stage_3_block_1_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_70 (TFOpL  (None, 7, 7, 768)   0           ['tf.__operators__.add_69[0][0]',
+ ambda)                                                           'convnext_small_stage_3_block_1_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 768)   38400       ['tf.__operators__.add_70[0][0]']
+ _depthwise_conv (Conv2D)                                                                         
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 768)   1536        ['convnext_small_stage_3_block_2_
+ _layernorm (LayerNormalization                                  depthwise_conv[0][0]']           
+ )                                                                                                
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 3072)  2362368     ['convnext_small_stage_3_block_2_
+ _pointwise_conv_1 (Dense)                                       layernorm[0][0]']                
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 3072)  0           ['convnext_small_stage_3_block_2_
+ _gelu (Activation)                                              pointwise_conv_1[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 768)   2360064     ['convnext_small_stage_3_block_2_
+ _pointwise_conv_2 (Dense)                                       gelu[0][0]']                     
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 768)   768         ['convnext_small_stage_3_block_2_
+ _layer_scale (LayerScale)                                       pointwise_conv_2[0][0]']         
+                                                                                                  
+ convnext_small_stage_3_block_2  (None, 7, 7, 768)   0           ['convnext_small_stage_3_block_2_
+ _identity (Activation)                                          layer_scale[0][0]']              
+                                                                                                  
+ tf.__operators__.add_71 (TFOpL  (None, 7, 7, 768)   0           ['tf.__operators__.add_70[0][0]',
+ ambda)                                                           'convnext_small_stage_3_block_2_
+                                                                 identity[0][0]']                 
+                                                                                                  
+ layer_normalization_1 (LayerNo  (None, 7, 7, 768)   1536        ['tf.__operators__.add_71[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ global_average_pooling2d_1 (Gl  (None, 768)         0           ['layer_normalization_1[0][0]']  
+ obalAveragePooling2D)                                                                            
+                                                                                                  
+ dropout_2 (Dropout)            (None, 768)          0           ['global_average_pooling2d_1[0][0
+                                                                 ]']                              
+                                                                                                  
+ dense_2 (Dense)                (None, 2048)         1574912     ['dropout_2[0][0]']              
+                                                                                                  
+ dropout_3 (Dropout)            (None, 2048)         0           ['dense_2[0][0]']                
+                                                                                                  
+ dense_3 (Dense)                (None, 2)            4098        ['dropout_3[0][0]']              
+                                                                                                  
+==================================================================================================
+Total params: 51,033,698
+Trainable params: 51,033,698
+Non-trainable params: 0
+__________________________________________________________________________________________________

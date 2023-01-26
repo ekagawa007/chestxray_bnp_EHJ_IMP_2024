@@ -1,0 +1,474 @@
+Model: "sam_model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 224, 224, 3  0           []                               
+                                )]                                                                
+                                                                                                  
+ stem (Conv2D)                  (None, 7, 7, 768)    2360064     ['input_1[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 49, 768)      0           ['stem[0][0]']                   
+                                                                                                  
+ MixerBlock_0/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['reshape[0][0]']                
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_0/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_0/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_0/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_0/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_0/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_0/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_0/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_0/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_0/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_0/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_0/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_0/permute_1[0][0]', 
+                                                                  'reshape[0][0]']                
+                                                                                                  
+ MixerBlock_0/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_0/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_0/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_0/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_0/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_0/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_0/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_0/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_0/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_0/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_0/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_1/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_0/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_1/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_1/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_1/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_1/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_1/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_1/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_1/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_1/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_1/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_1/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_1/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_1/permute_1[0][0]', 
+                                                                  'MixerBlock_0/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_1/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_1/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_1/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_1/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_1/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_1/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_1/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_1/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_1/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_1/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_1/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_2/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_1/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_2/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_2/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_2/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_2/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_2/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_2/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_2/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_2/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_2/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_2/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_2/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_2/permute_1[0][0]', 
+                                                                  'MixerBlock_1/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_2/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_2/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_2/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_2/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_2/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_2/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_2/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_2/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_2/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_2/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_2/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_3/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_2/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_3/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_3/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_3/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_3/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_3/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_3/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_3/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_3/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_3/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_3/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_3/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_3/permute_1[0][0]', 
+                                                                  'MixerBlock_2/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_3/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_3/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_3/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_3/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_3/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_3/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_3/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_3/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_3/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_3/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_3/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_4/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_3/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_4/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_4/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_4/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_4/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_4/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_4/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_4/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_4/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_4/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_4/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_4/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_4/permute_1[0][0]', 
+                                                                  'MixerBlock_3/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_4/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_4/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_4/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_4/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_4/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_4/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_4/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_4/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_4/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_4/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_4/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_5/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_4/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_5/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_5/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_5/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_5/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_5/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_5/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_5/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_5/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_5/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_5/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_5/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_5/permute_1[0][0]', 
+                                                                  'MixerBlock_4/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_5/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_5/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_5/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_5/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_5/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_5/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_5/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_5/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_5/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_5/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_5/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_6/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_5/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_6/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_6/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_6/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_6/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_6/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_6/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_6/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_6/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_6/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_6/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_6/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_6/permute_1[0][0]', 
+                                                                  'MixerBlock_5/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_6/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_6/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_6/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_6/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_6/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_6/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_6/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_6/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_6/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_6/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_6/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_7/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_6/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_7/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_7/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_7/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_7/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_7/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_7/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_7/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_7/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_7/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_7/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_7/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_7/permute_1[0][0]', 
+                                                                  'MixerBlock_6/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_7/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_7/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_7/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_7/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_7/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_7/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_7/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_7/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_7/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_7/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_7/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_8/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_7/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_8/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_8/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_8/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_8/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_8/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_8/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_8/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_8/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_8/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_8/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_8/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_8/permute_1[0][0]', 
+                                                                  'MixerBlock_7/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_8/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_8/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_8/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_8/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_8/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_8/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_8/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_8/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_8/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_8/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_8/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_9/LayerNorm_0 (Laye  (None, 49, 768)     1536        ['MixerBlock_8/add_1[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_9/permute_0 (Permut  (None, 768, 49)     0           ['MixerBlock_9/LayerNorm_0[0][0]'
+ e)                                                              ]                                
+                                                                                                  
+ MixerBlock_9/token_mixing/Dens  (None, 768, 384)    19200       ['MixerBlock_9/permute_0[0][0]'] 
+ e_0 (Dense)                                                                                      
+                                                                                                  
+ MixerBlock_9/token_mixing/gelu  (None, 768, 384)    0           ['MixerBlock_9/token_mixing/Dense
+  (Activation)                                                   _0[0][0]']                       
+                                                                                                  
+ MixerBlock_9/token_mixing/Dens  (None, 768, 49)     18865       ['MixerBlock_9/token_mixing/gelu[
+ e_1 (Dense)                                                     0][0]']                          
+                                                                                                  
+ MixerBlock_9/permute_1 (Permut  (None, 49, 768)     0           ['MixerBlock_9/token_mixing/Dense
+ e)                                                              _1[0][0]']                       
+                                                                                                  
+ MixerBlock_9/add_0 (Add)       (None, 49, 768)      0           ['MixerBlock_9/permute_1[0][0]', 
+                                                                  'MixerBlock_8/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_9/LayerNorm_1 (Laye  (None, 49, 768)     1536        ['MixerBlock_9/add_0[0][0]']     
+ rNormalization)                                                                                  
+                                                                                                  
+ MixerBlock_9/channel_mixing/De  (None, 49, 3072)    2362368     ['MixerBlock_9/LayerNorm_1[0][0]'
+ nse_0 (Dense)                                                   ]                                
+                                                                                                  
+ MixerBlock_9/channel_mixing/ge  (None, 49, 3072)    0           ['MixerBlock_9/channel_mixing/Den
+ lu (Activation)                                                 se_0[0][0]']                     
+                                                                                                  
+ MixerBlock_9/channel_mixing/De  (None, 49, 768)     2360064     ['MixerBlock_9/channel_mixing/gel
+ nse_1 (Dense)                                                   u[0][0]']                        
+                                                                                                  
+ MixerBlock_9/add_1 (Add)       (None, 49, 768)      0           ['MixerBlock_9/channel_mixing/Den
+                                                                 se_1[0][0]',                     
+                                                                  'MixerBlock_9/add_0[0][0]']     
+                                                                                                  
+ MixerBlock_10/LayerNorm_0 (Lay  (None, 49, 768)     1536        ['MixerBlock_9/add_1[0][0]']     
+ erNormalization)                                                                                 
+                                                                                                  
+ MixerBlock_10/permute_0 (Permu  (None, 768, 49)     0           ['MixerBlock_10/LayerNorm_0[0][0]
+ te)                                                             ']                               
+                                                                                                  
+ MixerBlock_10/token_mixing/Den  (None, 768, 384)    19200       ['MixerBlock_10/permute_0[0][0]']
+ se_0 (Dense)                                                                                     
+                                                                                                  
+ MixerBlock_10/token_mixing/gel  (None, 768, 384)    0           ['MixerBlock_10/token_mixing/Dens
+ u (Activation)                                                  e_0[0][0]']                      
+                                                                                                  
+ MixerBlock_10/token_mixing/Den  (None, 768, 49)     18865       ['MixerBlock_10/token_mixing/gelu
+ se_1 (Dense)                                                    [0][0]']                         
+                                                                                                  
+ MixerBlock_10/permute_1 (Permu  (None, 49, 768)     0           ['MixerBlock_10/token_mixing/Dens
+ te)                                                             e_1[0][0]']                      
+                                                                                                  
+ MixerBlock_10/add_0 (Add)      (None, 49, 768)      0           ['MixerBlock_10/permute_1[0][0]',
+                                                                  'MixerBlock_9/add_1[0][0]']     
+                                                                                                  
+ MixerBlock_10/LayerNorm_1 (Lay  (None, 49, 768)     1536        ['MixerBlock_10/add_0[0][0]']    
+ erNormalization)                                                                                 
+                                                                                                  
+ MixerBlock_10/channel_mixing/D  (None, 49, 3072)    2362368     ['MixerBlock_10/LayerNorm_1[0][0]
+ ense_0 (Dense)                                                  ']                               
+                                                                                                  
+ MixerBlock_10/channel_mixing/g  (None, 49, 3072)    0           ['MixerBlock_10/channel_mixing/De
+ elu (Activation)                                                nse_0[0][0]']                    
+                                                                                                  
+ MixerBlock_10/channel_mixing/D  (None, 49, 768)     2360064     ['MixerBlock_10/channel_mixing/ge
+ ense_1 (Dense)                                                  lu[0][0]']                       
+                                                                                                  
+ MixerBlock_10/add_1 (Add)      (None, 49, 768)      0           ['MixerBlock_10/channel_mixing/De
+                                                                 nse_1[0][0]',                    
+                                                                  'MixerBlock_10/add_0[0][0]']    
+                                                                                                  
+ MixerBlock_11/LayerNorm_0 (Lay  (None, 49, 768)     1536        ['MixerBlock_10/add_1[0][0]']    
+ erNormalization)                                                                                 
+                                                                                                  
+ MixerBlock_11/permute_0 (Permu  (None, 768, 49)     0           ['MixerBlock_11/LayerNorm_0[0][0]
+ te)                                                             ']                               
+                                                                                                  
+ MixerBlock_11/token_mixing/Den  (None, 768, 384)    19200       ['MixerBlock_11/permute_0[0][0]']
+ se_0 (Dense)                                                                                     
+                                                                                                  
+ MixerBlock_11/token_mixing/gel  (None, 768, 384)    0           ['MixerBlock_11/token_mixing/Dens
+ u (Activation)                                                  e_0[0][0]']                      
+                                                                                                  
+ MixerBlock_11/token_mixing/Den  (None, 768, 49)     18865       ['MixerBlock_11/token_mixing/gelu
+ se_1 (Dense)                                                    [0][0]']                         
+                                                                                                  
+ MixerBlock_11/permute_1 (Permu  (None, 49, 768)     0           ['MixerBlock_11/token_mixing/Dens
+ te)                                                             e_1[0][0]']                      
+                                                                                                  
+ MixerBlock_11/add_0 (Add)      (None, 49, 768)      0           ['MixerBlock_11/permute_1[0][0]',
+                                                                  'MixerBlock_10/add_1[0][0]']    
+                                                                                                  
+ MixerBlock_11/LayerNorm_1 (Lay  (None, 49, 768)     1536        ['MixerBlock_11/add_0[0][0]']    
+ erNormalization)                                                                                 
+                                                                                                  
+ MixerBlock_11/channel_mixing/D  (None, 49, 3072)    2362368     ['MixerBlock_11/LayerNorm_1[0][0]
+ ense_0 (Dense)                                                  ']                               
+                                                                                                  
+ MixerBlock_11/channel_mixing/g  (None, 49, 3072)    0           ['MixerBlock_11/channel_mixing/De
+ elu (Activation)                                                nse_0[0][0]']                    
+                                                                                                  
+ MixerBlock_11/channel_mixing/D  (None, 49, 768)     2360064     ['MixerBlock_11/channel_mixing/ge
+ ense_1 (Dense)                                                  lu[0][0]']                       
+                                                                                                  
+ MixerBlock_11/add_1 (Add)      (None, 49, 768)      0           ['MixerBlock_11/channel_mixing/De
+                                                                 nse_1[0][0]',                    
+                                                                  'MixerBlock_11/add_0[0][0]']    
+                                                                                                  
+ pre_head_layer_norm (LayerNorm  (None, 49, 768)     1536        ['MixerBlock_11/add_1[0][0]']    
+ alization)                                                                                       
+                                                                                                  
+ flatten (Flatten)              (None, 37632)        0           ['pre_head_layer_norm[0][0]']    
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 37632)       150528      ['flatten[0][0]']                
+ alization)                                                                                       
+                                                                                                  
+ dense (Dense)                  (None, 2048)         77072384    ['batch_normalization[0][0]']    
+                                                                                                  
+ dropout (Dropout)              (None, 2048)         0           ['dense[0][0]']                  
+                                                                                                  
+ dense_1 (Dense)                (None, 2)            4098        ['dropout[0][0]']                
+                                                                                                  
+==================================================================================================
+Total params: 136,751,438
+Trainable params: 136,676,174
+Non-trainable params: 75,264
+__________________________________________________________________________________________________

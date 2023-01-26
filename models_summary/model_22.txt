@@ -1,0 +1,72 @@
+Model: "sam_model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 320, 320, 3)]     0         
+                                                                 
+ embedding (Conv2D)          (None, 20, 20, 768)       590592    
+                                                                 
+ reshape (Reshape)           (None, 400, 768)          0         
+                                                                 
+ class_token (ClassToken)    (None, 401, 768)          768       
+                                                                 
+ Transformer/posembed_input   (None, 401, 768)         307968    
+ (AddPositionEmbs)                                               
+                                                                 
+ Transformer/encoderblock_0   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_1   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_2   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_3   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_4   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_5   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_6   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_7   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_8   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_9   ((None, 401, 768),       7087872   
+ (TransformerBlock)           (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_10  ((None, 401, 768),       7087872   
+  (TransformerBlock)          (None, 12, None, None))            
+                                                                 
+ Transformer/encoderblock_11  ((None, 401, 768),       7087872   
+  (TransformerBlock)          (None, 12, None, None))            
+                                                                 
+ Transformer/encoder_norm (L  (None, 401, 768)         1536      
+ ayerNormalization)                                              
+                                                                 
+ ExtractToken (Lambda)       (None, 768)               0         
+                                                                 
+ flatten (Flatten)           (None, 768)               0         
+                                                                 
+ batch_normalization (BatchN  (None, 768)              3072      
+ ormalization)                                                   
+                                                                 
+ dense (Dense)               (None, 2048)              1574912   
+                                                                 
+ dropout (Dropout)           (None, 2048)              0         
+                                                                 
+ dense_1 (Dense)             (None, 2)                 4098      
+                                                                 
+=================================================================
+Total params: 87,537,410
+Trainable params: 87,535,874
+Non-trainable params: 1,536
+_________________________________________________________________
