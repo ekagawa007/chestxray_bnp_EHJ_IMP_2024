@@ -16,37 +16,7 @@ BNP cut-off 100 pg/mL: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12145
 
 1. Download the model and save it to your local environment.
 2. Load the model using the following code.
-
-```python
-from tensorflow.keras.models import load_model
-
-# Specify the path to your model
-model_path = 'path/to/your/model.h5'
-model = load_model(model_path)
-```
-
-3. Add Necessary GitHub Files
-
-4. **Add Sample Code**:
-   - Add a sample code file (e.g., `example.py`) to the repository.
-   - Include code for loading and inference with the model.
-
-```python
-# example.py
-from tensorflow.keras.models import load_model
-import numpy as np
-
-# Specify the path to your model
-model_path = 'path/to/your/model.h5'
-model = load_model(model_path)
-
-# Prepare sample data
-# Add your data preprocessing code here
-
-# Inference
-predictions = model.predict(sample_data)
-print(predictions)
-```
+3. Utilize the following sample code on Google Colab or Jupyter Notebook.
 
 ## License
 
