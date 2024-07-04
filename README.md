@@ -19,7 +19,7 @@ BNP cut-off 100 pg/mL: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12145
 3. Utilize the sample code on Google Colab or Jupyter Notebook.<br>
 You can run the Jupyter Notebook directly in Google Colab by clicking the button below:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code.ipynb)
 
 https://github.com/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code.ipynb
 
