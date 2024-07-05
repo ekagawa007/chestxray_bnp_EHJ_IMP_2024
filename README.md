@@ -17,11 +17,17 @@ BNP cut-off 100 pg/mL: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12145
 1. Download the model and save it to your local environment.
 2. Load the model using the following code.
 3. Utilize the sample code on Google Colab or Jupyter Notebook.<br>
-You can run the Jupyter Notebook directly in Google Colab by clicking the button below:
+You can run the Jupyter Notebook directly in Google Colab by clicking the button below:<br>
 
+BNP cut-off 200 pg/mL, single model <br>
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code.ipynb)
 
 https://github.com/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code.ipynb
+
+BNP cut-off 200 pg/mL, ensenmble model<br>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code_ensemble.ipynb)
+
+https://github.com/ekagawa007/chestxray_bnp_EHJ_IMP_2024/blob/main/sample_code_ensemble.ipynb
 
 ## License
 
