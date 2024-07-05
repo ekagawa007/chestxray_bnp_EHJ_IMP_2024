@@ -2,7 +2,11 @@
 
 This repository provides the implementation code for models predicting elevated BNP levels.
 
-Kagawa et al. Predicting elevated natriuretic peptide in chest radiography: Emerging utilization gap for artificial intelligence. European Heart Journal – Imaging Methods and Practice 2024 in press
+Kagawa et al. Predicting elevated natriuretic peptide in chest radiography: Emerging utilization gap for artificial intelligence. European Heart Journal - Imaging Methods and Practice, Volume 2, Issue 1, January 2024, qyae064, https://doi.org/10.1093/ehjimp/qyae064
+
+## Version
+v1.0.0 first release<br>
+v1.0.1 July 5, 2024: release ensemble sample code
 
 ## Model Download
 You can download the model file from the following link:
